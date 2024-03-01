@@ -1,13 +1,39 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from 'react-router-dom';
+import './index.scss';
+import App from './components/App/App';
 import reportWebVitals from './reportWebVitals';
+import Error from './components/Error/Error';
+import ToDoList from './components/ToDoList/ToDoList';
+import Profile from './components/Profile/Profile';
+
+const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <App />,
+    errorElement: <Error />,
+    children: [
+      {
+        path: '',
+        element: <ToDoList />,
+      },
+      {
+        path: 'profile',
+        element: <Profile />,
+      },
+    ],
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
