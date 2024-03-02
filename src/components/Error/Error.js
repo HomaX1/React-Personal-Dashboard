@@ -1,7 +1,6 @@
 import React from 'react';
 import { useRouteError } from 'react-router-dom';
 import styles from './Error.module.scss';
-import AddNewTask from "../AddNewTask/AddNewTask";
 
 const Error = ({ title, text}) => {
   const error = useRouteError();
