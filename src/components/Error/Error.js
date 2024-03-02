@@ -1,19 +1,26 @@
 import React from 'react';
 import { useRouteError } from 'react-router-dom';
+import styles from './Error.module.scss';
+import AddNewTask from "../AddNewTask/AddNewTask";
 
-const Error = () => {
+const Error = ({ title, text}) => {
   const error = useRouteError();
   console.error(error);
 
   return (
-    <div className={Error}>
-      <h2>Oops!</h2>
-      <p>Sorry, an unexpected error has occurred.</p>
+    <div className={styles.Error}>
+      <h2>{title}</h2>
+      <p>{text}</p>
       <p>
         <i>{error.statusText || error.message}</i>
       </p>
     </div>
   )
+};
+
+Error.defaultProps = {
+  title: 'Oops!',
+  text: 'Sorry, an unexpected error has occurred.',
 };
 
 export default Error;
