@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useRouteError } from 'react-router-dom';
 import styles from './Error.module.scss';
 
-const Error = ({ title, text, buttonName }) => {
+const Error = ({title, text, buttonName}) => {
   const error = useRouteError();
   console.error(error);
 

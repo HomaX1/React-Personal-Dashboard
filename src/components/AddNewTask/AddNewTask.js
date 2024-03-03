@@ -1,22 +1,15 @@
 import React from 'react';
-//import PropTypes from 'prop-types';
 import styles from './AddNewTask.module.scss';
 
-const AddNewTask = ({ inputName, placeholderName, buttonName }) => (
+const AddNewTask = ({inputName, placeholderName, buttonName, taskName, handleSetNewTask, handleAddNewTask}) => (
   <form className={styles.AddNewTask}>
-    <input type="text" name={inputName} placeholder={placeholderName} />
-    <button type="submit">{buttonName}</button>
+    <input type="text" name={inputName} placeholder={placeholderName} value={taskName} onChange={handleSetNewTask}/>
+    <button type="button" disabled={!taskName.length} onClick={handleAddNewTask}>{buttonName}</button>
   </form>
 );
 
-/*AddNewTask.propTypes = {
-  inputName: PropTypes.string,
-  placeholderName: PropTypes.string,
-  buttonName: PropTypes.string,
-};*/
-
 AddNewTask.defaultProps = {
-  inputName: 'add-new-task-field',
+  inputName: 'new-task',
   placeholderName: 'Task name',
   buttonName: 'Add new task',
 };

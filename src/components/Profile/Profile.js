@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Profile.module.scss';
 
-const Profile = ({ buttonName, imageAlt}) => {
+const Profile = ({buttonName, imageAlt}) => {
   const [user, setUser] = useState({
     firstName: 'Naomi',
     lastName: 'Williams',
