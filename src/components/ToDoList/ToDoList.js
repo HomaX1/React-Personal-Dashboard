@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import styles from './ToDoList.module.scss';
 import AddNewTask from '../AddNewTask/AddNewTask';
 import Item from '../Item/Item';
@@ -82,7 +82,8 @@ const ToDoList = ({noTasksText}) => {
         )}
       </ul>
     </div>
-)};
+  )
+};
 
 ToDoList.defaultProps = {
   noTasksText: 'There is no any tasks here!',

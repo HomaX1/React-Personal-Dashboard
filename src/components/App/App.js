@@ -1,13 +1,12 @@
-//import { useState } from 'react';
-import { Outlet } from 'react-router-dom';
+import {Outlet} from 'react-router-dom';
 import styles from './App.module.scss';
 import Header from '../Header/Header';
 
 const App = () => {
   return (
     <div className={styles.App}>
-      <Header />
-      <Outlet />
+      <Header/>
+      <Outlet/>
     </div>
   )
 };
