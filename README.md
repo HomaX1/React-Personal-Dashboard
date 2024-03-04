@@ -2,28 +2,23 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Steps to run:
 
-In the project directory, you can run:
+1.  Install dependencies: `npm install`
 
-### `npm start`
+2. Start the development server: `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+3.  Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Description of the project
 
-### `npm run build`
+This project consists of three main pages:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. **To-do List:** In this page, users can manage their tasks. They can add new tasks, mark completed tasks, and delete tasks. Additionally, the header contains a profile icon that allows users to navigate to the profile page.
+2. **Profile Page:** The profile page displays user information. Users can view their profile details, such as profile picture, name, and email. Additionally, the page provides real-time weather conditions for the user’s city.
+3. **Error Page:** If a user navigates to a non-existent page, they will be redirected to the error page. The error page informs the user that the requested page was not found. A “Return to Main page” button allows users to go back to the main page.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Technologies Used
+- React.js (functional components and React hooks)
+- SCSS modules (for styling)
+- OpenWeatherMap API (for weather data)

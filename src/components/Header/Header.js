@@ -7,10 +7,10 @@ const Header = ({title, buttonName}) => {
 
   return (
     <div className={styles.Header}>
-      <h1>{title}</h1>
+      <h1 className={styles.title}>{title}</h1>
       {location.pathname !== '/profile' && (
-        <Link to={'profile'}>
-          <i className="bi bi-person-fill"></i>
+        <Link to={'profile'} className={styles.link}>
+          <i className={`bi bi-person-fill ${styles.icon}`}></i>
           <span>{buttonName}</span>
         </Link>
       )}

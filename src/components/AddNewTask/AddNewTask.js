@@ -2,9 +2,10 @@ import React from 'react';
 import styles from './AddNewTask.module.scss';
 
 const AddNewTask = ({inputName, placeholderName, buttonName, taskName, handleSetNewTask, handleAddNewTask}) => (
-  <form className={styles.AddNewTask}>
-    <input type="text" name={inputName} placeholder={placeholderName} value={taskName} onChange={handleSetNewTask}/>
-    <button type="button" disabled={!taskName.length} onClick={handleAddNewTask}>{buttonName}</button>
+  <form className={styles.AddNewTask} onSubmit={handleAddNewTask}>
+    <input className={styles.input} type="text" name={inputName} placeholder={placeholderName} value={taskName}
+           onChange={handleSetNewTask}/>
+    <button className="button" type="submit" disabled={!taskName.length}>{buttonName}</button>
   </form>
 );
 

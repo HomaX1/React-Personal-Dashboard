@@ -8,12 +8,12 @@ const Error = ({title, text, buttonName}) => {
 
   return (
     <div className={styles.Error}>
-      <h2>{title}</h2>
+      <h2 className={styles.title}>{title}</h2>
       <p>{text}</p>
       <p>
         <i>{error.statusText || error.message}</i>
       </p>
-      <Link to={'/'}>
+      <Link to={'/'} className="button">
         <span>{buttonName}</span>
       </Link>
     </div>
@@ -23,7 +23,7 @@ const Error = ({title, text, buttonName}) => {
 Error.defaultProps = {
   title: 'Oops!',
   text: 'Sorry, an unexpected error has occurred.',
-  buttonName: 'Return to Homepage',
+  buttonName: 'Return to Main page',
 };
 
 export default Error;

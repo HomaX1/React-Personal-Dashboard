@@ -54,7 +54,9 @@ const ToDoList = ({noTasksText}) => {
     setTaskName(e.target.value);
   }
 
-  function handleAddNewTask() {
+  function handleAddNewTask(e) {
+    e.preventDefault();
+
     const taskId = Math.floor(Math.random() * 100);
 
     setTasks([
@@ -71,9 +73,9 @@ const ToDoList = ({noTasksText}) => {
   return (
     <div className={styles.ToDoList}>
       <AddNewTask taskName={taskName} handleSetNewTask={handleSetNewTask} handleAddNewTask={handleAddNewTask}/>
-      <ul>
+      <ul className={styles.list}>
         {!tasks.length ? (
-          <p>{noTasksText}</p>
+          <p className={styles.text}>{noTasksText}</p>
         ) : (
           tasks.map((task) => {
             return <Item key={task.id} task={task} handleCheckboxChecked={() => handleCheckboxChecked(task)}

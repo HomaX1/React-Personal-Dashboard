@@ -1,1 +1,37 @@
-.Header {}
+@import '../../styles';
+
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $primary;
+  color: $secondary;
+  padding: 0 30px;
+  margin-bottom: 60px;
+
+  @media (max-width: 767px) {
+    padding: 0 20px;
+  }
+
+  .title {
+    font-size: 28px;
+    text-transform: capitalize;
+
+    @media (max-width: 767px) {
+      font-size: 24px;
+    }
+  }
+
+  .link {
+    color: $secondary;
+
+    &:hover {
+      color: $light;
+    }
+  }
+
+  .icon {
+    font-size: 20px;
+    margin-right: 5px;
+  }
+}

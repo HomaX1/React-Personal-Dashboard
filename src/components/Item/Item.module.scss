@@ -1,1 +1,79 @@
-.Item {}
+@import '../../styles';
+
+.Item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  margin-bottom: 5px;
+  cursor: pointer;
+
+  @media (max-width: 767px) {
+    padding: 0 20px;
+  }
+
+  &:hover {
+    border-radius: 5px;
+    background-color: rgba($secondary, .3);
+
+    @media (max-width: 767px) {
+      background-color: transparent;
+    }
+
+    input ~ .checkmark {
+      background-color: $secondary-dark;
+
+      @media (max-width: 767px) {
+        background-color: $secondary;
+      }
+    }
+  }
+
+  .label {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    position: relative;
+    padding: 10px 20px 10px 0;
+    cursor: pointer;
+
+    & input:checked ~ .checkmark {
+      background-color: $primary;
+
+      & .checkboxTick {
+        display: block;
+      }
+    }
+  }
+
+  .checkbox {
+    height: 0;
+    width: 0;
+    position: absolute;
+  }
+
+  .checkmark {
+    display: inline-flex;
+    align-items: center;
+    height: 20px;
+    width: 20px;
+    min-width: 20px;
+    border-radius: 3px;
+    background-color: $secondary;
+    margin: 0 10px 0 0;
+
+    & .checkboxTick {
+      display: none;
+      color: $light;
+      font-size: 20px;
+    }
+  }
+
+  .icons {
+    font-size: 20px;
+
+    &:hover {
+      color: $danger;
+    }
+  }
+}

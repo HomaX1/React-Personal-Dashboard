@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import styles from './Profile.module.scss';
 import Weather from '../Weather/Weather';
 
-const Profile = ({buttonName, user, imageAlt, appKey}) => {
+const Profile = ({buttonName, user, imageAlt, emailText, errorText, weatherText, appKey}) => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [weather, setWeather] = useState({});
@@ -21,6 +21,7 @@ const Profile = ({buttonName, user, imageAlt, appKey}) => {
           fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${locationCoordinates.latitude}&lon=${locationCoordinates.longitude}&units=metric&appid=${appKey}`)
             .then(response => response.json())
             .then((result) => {
+              setIsLoaded(true);
               setWeather({
                 temperature: Math.round(result.main.temp),
                 feelsLike: Math.round(result.main.feels_like),
@@ -38,19 +39,18 @@ const Profile = ({buttonName, user, imageAlt, appKey}) => {
 
   return (
     <div className={styles.Profile}>
-      <Link to={'/'}>
-        <i className="bi bi-arrow-left"></i>
+      <Link to={'/'} className={`${styles.returnButton} button`}>
+        <i className={`bi bi-arrow-left ${styles.icon}`}></i>
         <span>{buttonName}</span>
       </Link>
-      <div>
+      <div className={styles.user}>
         <img className={styles.avatar} src={require('../../assets/portrait.jpg')} alt={imageAlt}/>
         <div className={styles.userInfo}>
-          <p>{user.firstName} {user.lastName}</p>
-          <p>{user.email}</p>
-          <p>{user.city}</p>
-          {error ? <p>Error: {error.message}</p>
-            : !isLoaded ? <p>Weather are loaded...</p>
-              : <Weather currentWeather={weather}/>
+          <p className={styles.name}>{user.firstName} {user.lastName}</p>
+          <p>{emailText} {user.email}</p>
+          {error ? <p>{errorText} {error.message}</p>
+            : !isLoaded ? <p>{weatherText}</p>
+              : <Weather city={user.city} currentWeather={weather}/>
           }
         </div>
       </div>
@@ -69,7 +69,10 @@ Profile.defaultProps = {
     country: 'CA',
   },
   imageAlt: 'Profile avatar',
-  appKey: '975a04e12bae62c45a3c34ef4d7de316',
+  emailText: 'Email:',
+  errorText: 'Error:',
+  weatherText: 'Weather is loading...',
+  appKey: '975a04e12bae62c45a3c34ef4d7de316', //This was done on purpose to facilitate the launch of the project. In a real situation, this is a leak of secret data and is unacceptable.
 };
 
 export default Profile;
