@@ -72,7 +72,7 @@ Profile.defaultProps = {
   emailText: 'Email:',
   errorText: 'Error:',
   weatherText: 'Weather is loading...',
-  appKey: '975a04e12bae62c45a3c34ef4d7de316', //This was done on purpose to facilitate the launch of the project. In a real situation, this is a leak of secret data and is unacceptable.
+  appKey: '', //Add appKey
 };
 
 export default Profile;
